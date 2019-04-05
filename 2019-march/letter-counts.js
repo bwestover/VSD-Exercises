@@ -40,7 +40,7 @@ tens_place = {
   0:"",
   2:"twenty",
   3:"thirty",
-  4:"fourty",
+  4:"forty",
   5:"fifty",
   6:"sixty",
   7:"seventy",
@@ -87,12 +87,12 @@ function to_names(numeral){
 
 //console.log(to_names(100))
 sum = 0
-for (let i=1;i<=999;i++){
-  if (to_names(i).includes("undefined")){
-    console.log("AAAAAAAAHHHHHHHH")
-    console.log(i)
-  }
+for (let i=1;i<=1000;i++){
+  // if (to_names(i).includes("undefined")){
+  //   console.log("AAAAAAAAHHHHHHHH")
+  //   console.log(i)
+  // }
   sum = sum + to_names(i).length
-  //console.log(to_names(i) + "  " + to_names(i).length + "  " + sum.toString())
+  console.log(to_names(i).padEnd(30) + "  " + to_names(i).length.toString().padEnd(4) + "  " + sum.toString())
 }
 console.log(sum)
