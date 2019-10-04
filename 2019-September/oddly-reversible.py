@@ -1,26 +1,36 @@
+import time
+
 def isVeryOdd(n):
-    for i in str(n):
-        if (int(i) % 2 == 0):
+    while n > 9:
+        n = n // 10
+        if n % 2 == 0:
             return False
+
     return True
 
-total = 0
-reversibles = []
+def getTotal(n):
+    total = 0
 
-for i in range(0, 10000000, 1):
-    if i in reversibles:
-        continue
+    for i in range(0, n, 2):
+        if (i % 10 == 0):
+            continue
+        
+        numString = str(i)
 
-    if (i % 10 == 0):
-        continue
-    reversed = str(i)[::-1]
+        if numString[0] in ['1', '3', '5', '7', '9']:
+            reversed = numString[::-1]
+            intReversed = int(reversed)
 
-    result = (i + int(reversed))
-    if (result % 2 == 0):
-        continue
+            result = (i + intReversed)
 
-    if isVeryOdd(result):
-        total += 1
-        reversibles.append(i)
-        reversibles.append(reversed)
-print total
+            if isVeryOdd(result):
+                total += 1
+
+    return total * 2
+
+start = time.time()
+total = getTotal(10000000)
+end = time.time()
+
+print(total)
+print(end - start)
