@@ -1,21 +1,22 @@
+// Match a category name to a function name.
 const categoryMap = {
-  'yacht': 'rollYacht',
-  'ones': 'rollDigit',
-  'twos': 'rollDigit',
-  'threes': 'rollDigit',
-  'fours': 'rollDigit',
-  'fives': 'rollDigit',
-  'sixes': 'rollDigit',
-  'full house': 'rollFullHouse',
-  'four of a kind': 'rollFourKind',
-  'little straight': 'rollLittleStraight',
-  'big straight': 'rollBigStraight',
-  'choice': 'rollChoice'
+  'yacht': rollYacht,
+  'ones': rollDigit,
+  'twos': rollDigit,
+  'threes': rollDigit,
+  'fours': rollDigit,
+  'fives': rollDigit,
+  'sixes': rollDigit,
+  'full house': rollFullHouse,
+  'four of a kind': rollFourKind,
+  'little straight': rollLittleStraight,
+  'big straight': rollBigStraight,
+  'choice': rollChoice
 }
 
 export const score = (dice, category) => {
   const roller = categoryMap[category]
-  return eval(`${roller}(dice, category)`)
+  return roller(dice, category)
   //Ex.  return rollYacht(dice)
   //Ex2. return rollDigit(dice)
 };
@@ -44,6 +45,12 @@ function rollDigit(dice, category) {
   const winners = dice.filter(roll => roll === numerals[category])
   return sum(winners)
 }
+
+function rollFourKind() {}
+
+function rollLittleStraight() {}
+
+function rollBigStraight() {}
 
 function rollFullHouse() {}
 
