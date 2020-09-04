@@ -46,13 +46,57 @@ function rollDigit(dice, category) {
   return sum(winners)
 }
 
-function rollFourKind() {}
+function rollFourKind(dice) {
+  const ourBag = ourFantasticBagOfHolding(dice)
+  for (const [key, value] of Object.entries(ourBag)) {
+    if (value >= 4) {
+      return key * 4
+    }
+  }
 
-function rollLittleStraight() {}
+  return 0
+}
 
-function rollBigStraight() {}
+function ourFantasticBagOfHolding(dice) {
+  const bag = {}
 
-function rollFullHouse() {}
+  dice.forEach(roll => {
+    if (bag[roll]) {
+      bag[roll] += 1
+    } else {
+      bag[roll] = 1
+    }
+  })
+  
+  return bag
+}
+
+function rollLittleStraight(dice) {
+  const sorted = dice.sort().join()
+  if (sorted === '1,2,3,4,5') {
+    return 30
+  }
+  return 0
+}
+
+function rollBigStraight(dice) {
+  const sorted = dice.sort().join()
+  if (sorted === '2,3,4,5,6') {
+    return 30
+  }
+  return 0
+}
+
+function rollFullHouse(dice) {
+  const bag = ourFantasticBagOfHolding(dice)
+  const counts = Object.values(bag)
+
+  if (counts.includes(3) && counts.includes(2)) {
+    return sum(dice)
+  }
+
+  return 0
+}
 
 function rollChoice(dice) {
   return sum(dice)
