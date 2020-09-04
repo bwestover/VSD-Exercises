@@ -1,5 +1,25 @@
 import { score } from './yacht'
 
+/**
+ * The "players" object used in many of these functions contains all player names
+ * and their scores for each category.
+ *
+ * const players = {
+ *   'player 1': {
+ *     ones: 12,
+ *     fours: 2
+ *   },
+ *   'player 2': {
+ *     ones: 4,
+ *     fives: 0
+ *   },
+ *   'player 3': {
+ *     ones: 5,
+ *     'little straight': 20
+ *   }
+ * }
+ */
+
 export const categories = {
   ones: 'Ones',
   twos: 'Twos',
@@ -22,7 +42,7 @@ export const categoriesArr = Object.keys(categories)
  *
  * @param {array} scores - list of scores to add together.
  *
- * @return {array} The total score for a player.
+ * @return {number} The total score for a player.
  */
 export const sumTotal = scores => {
   return 0
@@ -31,9 +51,10 @@ export const sumTotal = scores => {
 /**
  * Get the totals for each player.
  *
- * @param {object} players - List of players and their scores with each key as the name of the player.
+ * @param {object} players - List of players and their scores with each key as the name of the player
+ *   and the value as an objects of scores.
  *
- * @return {array} Each player as an object with name and total.
+ * @return {object} Each player as an object with name and total.
  */
 export const playerTotals = players => {
   return {
