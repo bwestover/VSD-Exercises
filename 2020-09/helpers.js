@@ -54,13 +54,23 @@ export const sumTotal = scores => {
  * @param {object} players - List of players and their scores with each key as the name of the player
  *   and the value as an objects of scores.
  *
- * @return {object} Each player as an object with name and total.
+ * @return {array} Each player as an object with name and total.
  */
 export const playerTotals = players => {
-  return {
-    name: 'player 1',
-    total: 30
-  }
+  return [
+    {
+      name: 'player 1',
+      total: 30
+    },
+    {
+      name: 'player 2',
+      total: 2
+    },
+    {
+      name: 'player 3',
+      total: 15
+    }
+  ]
 }
 
 /**
