@@ -21,7 +21,7 @@ describe('Helpers', () => {
     expect(sumTotal([1, 2, 3, 4, 5])).toEqual(15)
   })
 
-  xtest('Player Totals', () => {
+  test('Player Totals', () => {
     const result = [
       {
         name: 'player 1',
@@ -40,7 +40,7 @@ describe('Helpers', () => {
     expect(playerTotals(players)).toEqual(result)
   })
 
-  xtest('Next Player', () => {
+  test('Next Player', () => {
     expect(nextPlayer(players, 'player 1')).toEqual('player 2')
     expect(nextPlayer(players, 'player 2')).toEqual('player 3')
     expect(nextPlayer(players, 'player 3')).toEqual('player 1')
@@ -104,7 +104,7 @@ describe('Helpers', () => {
     expect(scores.size).toEqual(1)
   })
 
-  xtest('Locked dice will not roll', () => {
+  test('Locked dice will not roll', () => {
     // Mock random math.
     global.Math.random = jest.fn(() => 0.9999)
     
@@ -115,7 +115,7 @@ describe('Helpers', () => {
     expect(roll2).toEqual([5, 6, 3, 6, 1])
   })
 
-  xtest('Dice rolls should have numbers from 1-6', () => {
+  test('Dice rolls should have numbers from 1-6', () => {
     // Mock random math.
     global.Math.random = jest.fn(() => 0)
     expect(rollDice([], [5, 4, 3, 2, 1])).toEqual([1, 1, 1, 1, 1])
